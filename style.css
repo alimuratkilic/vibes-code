@@ -1,0 +1,471 @@
+/* =========================================================
+   1. VARIABLES
+   Change colors here once and the whole site updates.
+   ========================================================= */
+:root {
+  --table: #0f3d5e;       /* table-tennis table blue */
+  --table-dark: #0a2a42;  /* darker blue for contrast sections */
+  --line: #ffffff;        /* table's white lines */
+  --ball: #ff8a1f;        /* orange ball = main accent color */
+  --red: #d7263d;         /* forehand rubber */
+  --black: #1b1b1b;       /* backhand rubber */
+  --text: #1c2833;
+  --muted: #5d6d7e;
+  --bg: #f5f7fa;
+  --radius: 14px;         /* rounded corners used everywhere */
+}
+
+/* =========================================================
+   2. RESET + BASE
+   Removes browser default spacing and sets basic typography.
+   ========================================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* padding no longer adds to element width */
+}
+
+html {
+  scroll-behavior: smooth; /* nav links glide instead of jumping */
+}
+
+body {
+  font-family: "Inter", system-ui, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* =========================================================
+   3. NAVBAR
+   ========================================================= */
+.navbar {
+  position: sticky;       /* stays at the top while scrolling */
+  top: 0;
+  z-index: 10;            /* keeps it above other content */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 6%;
+  background: rgba(10, 42, 66, 0.92);
+  backdrop-filter: blur(8px); /* frosted-glass effect */
+  color: var(--line);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 800;
+  font-size: 1.2rem;
+}
+
+/* Tiny orange ball next to the logo text */
+.logo-ball {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--ball);
+}
+
+.navbar nav a {
+  margin-left: 24px;
+  font-weight: 500;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+
+.navbar nav a:hover {
+  opacity: 1;
+  color: var(--ball);
+}
+
+/* =========================================================
+   4. HERO
+   The background imitates a table: blue surface + white
+   center line, drawn with a linear-gradient.
+   ========================================================= */
+.hero {
+  min-height: 90vh;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr; /* text left, racket right */
+  align-items: center;
+  gap: 40px;
+  padding: 60px 6%;
+  color: var(--line);
+  background:
+    linear-gradient(90deg, transparent 49.7%, rgba(255,255,255,0.15) 49.7%, rgba(255,255,255,0.15) 50.3%, transparent 50.3%),
+    var(--table);
+  border-bottom: 6px solid var(--line); /* table edge line */
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 0.8rem;
+  color: var(--ball);
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.hero h1 {
+  font-size: clamp(2.4rem, 5vw, 4rem); /* scales with screen size */
+  line-height: 1.1;
+  font-weight: 800;
+  margin-bottom: 18px;
+}
+
+.hero-sub {
+  max-width: 440px;
+  opacity: 0.85;
+  margin-bottom: 30px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 14px 28px;
+  background: var(--ball);
+  color: #fff;
+  font-weight: 700;
+  border-radius: 999px; /* pill shape */
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(255, 138, 31, 0.4);
+}
+
+/* ---------- CSS-drawn racket ---------- */
+.hero-visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.racket {
+  transform: rotate(-25deg);
+  animation: float 4s ease-in-out infinite; /* gentle bobbing */
+}
+
+.racket-head {
+  width: 220px;
+  height: 240px;
+  background: var(--red);
+  border-radius: 50%;
+  border: 6px solid #2b2b2b; /* edge tape */
+  box-shadow: inset -20px -20px 40px rgba(0,0,0,0.25); /* adds depth */
+}
+
+.racket-handle {
+  width: 50px;
+  height: 120px;
+  margin: -10px auto 0; /* overlaps head slightly so they connect */
+  background: linear-gradient(90deg, #c49a6c, #e3c194, #c49a6c); /* wood look */
+  border-radius: 8px 8px 14px 14px;
+}
+
+.ball {
+  position: absolute;
+  top: 10%;
+  right: 18%;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #ffd0a3, var(--ball));
+  animation: float 3s ease-in-out infinite reverse;
+}
+
+/* Reusable up-and-down animation */
+@keyframes float {
+  0%, 100% { translate: 0 0; }
+  50%      { translate: 0 -14px; }
+}
+
+/* =========================================================
+   5. GENERIC SECTION STYLES
+   ========================================================= */
+.section {
+  padding: 90px 6%;
+}
+
+.section-dark {
+  background: var(--table-dark);
+  color: var(--line);
+}
+
+.section-light {
+  background: #fff;
+}
+
+.section-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+/* Small orange underline under every section title */
+.section-title::after {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 4px;
+  margin-top: 8px;
+  background: var(--ball);
+  border-radius: 2px;
+}
+
+.section-sub {
+  color: var(--muted);
+  margin-bottom: 40px;
+}
+
+.section-dark .section-sub {
+  color: rgba(255,255,255,0.7);
+}
+
+/* =========================================================
+   6. RACKET CARDS
+   auto-fit + minmax = cards wrap automatically on small screens.
+   ========================================================= */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+}
+
+.card {
+  background: #fff;
+  padding: 28px;
+  border-radius: var(--radius);
+  border-top: 5px solid var(--table);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.12);
+}
+
+.card-red   { border-top-color: var(--red); }
+.card-black { border-top-color: var(--black); }
+
+.tag {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 700;
+  color: var(--ball);
+}
+
+.card h3 {
+  font-size: 1.4rem;
+  margin: 6px 0 18px;
+}
+
+/* Spec rows: label on the left, value on the right */
+.specs {
+  list-style: none;
+}
+
+.specs li {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #eef1f4;
+  font-size: 0.95rem;
+}
+
+.specs li:last-child {
+  border-bottom: none;
+}
+
+.specs li span:first-child {
+  color: var(--muted);
+}
+
+.specs li span:last-child {
+  font-weight: 600;
+}
+
+/* =========================================================
+   7. STATS BARS
+   .fill reads its width from the --value set in the HTML.
+   ========================================================= */
+.stats {
+  max-width: 700px;
+  display: grid;
+  gap: 26px;
+}
+
+.stat-label {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.bar {
+  height: 12px;
+  background: rgba(255,255,255,0.12);
+  border-radius: 999px;
+  overflow: hidden; /* keeps the fill inside the rounded bar */
+}
+
+.fill {
+  height: 100%;
+  width: var(--value);
+  background: linear-gradient(90deg, var(--ball), #ffb366);
+  border-radius: 999px;
+  animation: grow 1.4s ease-out; /* bar grows in on page load */
+}
+
+@keyframes grow {
+  from { width: 0; }
+}
+
+/* =========================================================
+   8. GEAR GRID
+   ========================================================= */
+.gear-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.gear-item {
+  background: #fff;
+  padding: 24px;
+  border-radius: var(--radius);
+  text-align: center;
+  border: 1px solid #e5e9ee;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.gear-item:hover {
+  border-color: var(--ball);
+  transform: scale(1.03);
+}
+
+.gear-icon {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 14px;
+  display: grid;
+  place-items: center; /* centers the emoji */
+  font-size: 1.8rem;
+  background: #fff3e8;
+  border-radius: 50%;
+}
+
+.gear-item h4 {
+  margin-bottom: 6px;
+}
+
+.gear-item p {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* =========================================================
+   9. CARE ACCORDION (<details> / <summary>)
+   ========================================================= */
+.faq {
+  max-width: 750px;
+}
+
+.faq details {
+  border: 1px solid #e5e9ee;
+  border-radius: var(--radius);
+  margin-bottom: 12px;
+  padding: 18px 22px;
+  background: var(--bg);
+}
+
+.faq summary {
+  cursor: pointer;
+  font-weight: 600;
+  list-style: none; /* hides the default arrow... */
+  display: flex;
+  justify-content: space-between;
+}
+
+.faq summary::-webkit-details-marker {
+  display: none; /* ...also in Safari */
+}
+
+/* Our own "+" icon that rotates into "×" when opened */
+.faq summary::after {
+  content: "+";
+  color: var(--ball);
+  font-size: 1.3rem;
+  transition: transform 0.2s;
+}
+
+.faq details[open] summary::after {
+  transform: rotate(45deg);
+}
+
+.faq details p {
+  margin-top: 12px;
+  color: var(--muted);
+}
+
+/* =========================================================
+   10. FOOTER
+   ========================================================= */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 28px 6%;
+  background: var(--table-dark);
+  color: rgba(255,255,255,0.7);
+  font-size: 0.9rem;
+}
+
+.footer a:hover {
+  color: var(--ball);
+}
+
+/* =========================================================
+   11. RESPONSIVE (phones and small tablets)
+   Everything inside applies only when the screen is ≤ 800px.
+   ========================================================= */
+@media (max-width: 800px) {
+  .hero {
+    grid-template-columns: 1fr; /* stack text and racket */
+    text-align: center;
+  }
+
+  .hero-sub {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .racket-head {
+    width: 160px;
+    height: 175px;
+  }
+
+  .racket-handle {
+    width: 38px;
+    height: 90px;
+  }
+
+  .navbar nav a {
+    margin-left: 14px;
+    font-size: 0.9rem;
+  }
+
+  .footer {
+    flex-direction: column;
+    gap: 8px;
+  }
+}

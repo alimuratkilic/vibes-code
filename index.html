@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Basic page setup: character encoding + mobile-friendly scaling -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Table Tennis Setup</title>
+
+  <!-- Google Font (optional — the site still works offline with fallback fonts) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+
+  <!-- Our stylesheet. Keep style.css in the same folder as this file. -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===================== NAVIGATION ===================== -->
+  <!-- "sticky" in CSS keeps this bar at the top while scrolling.
+       The href="#..." links jump to the section with that id. -->
+  <header class="navbar">
+    <a href="#home" class="logo">
+      <span class="logo-ball"></span> MySetup
+    </a>
+    <nav>
+      <a href="#racket">Racket</a>
+      <a href="#stats">Stats</a>
+      <a href="#gear">Gear</a>
+      <a href="#care">Care</a>
+    </nav>
+  </header>
+
+  <!-- ===================== HERO ===================== -->
+  <!-- The first thing visitors see. The racket on the right is drawn
+       entirely with CSS (no image needed) — see ".racket" in style.css. -->
+  <section id="home" class="hero">
+    <div class="hero-text">
+      <p class="eyebrow">Table Tennis · Equipment</p>
+      <h1>The gear behind<br>every rally.</h1>
+      <p class="hero-sub">
+        A breakdown of my racket, rubbers and everything else I bring to the table.
+      </p>
+      <a href="#racket" class="btn">See my racket</a>
+    </div>
+
+    <div class="hero-visual">
+      <div class="racket">
+        <div class="racket-head"></div>
+        <div class="racket-handle"></div>
+      </div>
+      <div class="ball"></div>
+    </div>
+  </section>
+
+  <!-- ===================== RACKET BREAKDOWN ===================== -->
+  <!-- Three cards: blade + two rubbers. Replace the placeholder text
+       with your real equipment names and details. -->
+  <section id="racket" class="section">
+    <h2 class="section-title">My Racket</h2>
+    <p class="section-sub">A custom setup — blade and rubbers chosen separately.</p>
+
+    <div class="card-grid">
+      <article class="card">
+        <span class="tag">Blade</span>
+        <h3>Butterfly Viscaria</h3> <!-- CHANGE: your blade -->
+        <ul class="specs">
+          <li><span>Composition</span><span>5 wood + 2 ALC</span></li>
+          <li><span>Weight</span><span>88 g</span></li>
+          <li><span>Handle</span><span>Flared (FL)</span></li>
+        </ul>
+      </article>
+
+      <!-- "card-red" / "card-black" add a colored top border for each rubber side -->
+      <article class="card card-red">
+        <span class="tag">Forehand</span>
+        <h3>Tenergy 05</h3> <!-- CHANGE: your forehand rubber -->
+        <ul class="specs">
+          <li><span>Color</span><span>Red</span></li>
+          <li><span>Thickness</span><span>2.1 mm</span></li>
+          <li><span>Style</span><span>Spin / loop</span></li>
+        </ul>
+      </article>
+
+      <article class="card card-black">
+        <span class="tag">Backhand</span>
+        <h3>Dignics 64</h3> <!-- CHANGE: your backhand rubber -->
+        <ul class="specs">
+          <li><span>Color</span><span>Black</span></li>
+          <li><span>Thickness</span><span>2.1 mm</span></li>
+          <li><span>Style</span><span>Speed / drive</span></li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===================== STATS ===================== -->
+  <!-- Each bar's fill width is set inline with style="--value: 85%".
+       Change the number to update the bar — no JavaScript needed. -->
+  <section id="stats" class="section section-dark">
+    <h2 class="section-title">Performance</h2>
+    <p class="section-sub">How the full setup feels, on a scale of 0–100.</p>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-label"><span>Speed</span><span>85</span></div>
+        <div class="bar"><div class="fill" style="--value: 85%"></div></div>
+      </div>
+      <div class="stat">
+        <div class="stat-label"><span>Spin</span><span>92</span></div>
+        <div class="bar"><div class="fill" style="--value: 92%"></div></div>
+      </div>
+      <div class="stat">
+        <div class="stat-label"><span>Control</span><span>74</span></div>
+        <div class="bar"><div class="fill" style="--value: 74%"></div></div>
+      </div>
+      <div class="stat">
+        <div class="stat-label"><span>Weight</span><span>180 g total</span></div>
+        <div class="bar"><div class="fill" style="--value: 60%"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== OTHER GEAR ===================== -->
+  <!-- Small tiles for the rest of the equipment. The emoji act as
+       simple icons; swap them or the text freely. -->
+  <section id="gear" class="section">
+    <h2 class="section-title">Other Equipment</h2>
+    <p class="section-sub">Everything else in the bag.</p>
+
+    <div class="gear-grid">
+      <div class="gear-item">
+        <div class="gear-icon">👟</div>
+        <h4>Shoes</h4>
+        <p>Mizuno Wave Medal — light, low and grippy.</p>
+      </div>
+      <div class="gear-item">
+        <div class="gear-icon">🏓</div>
+        <h4>Balls</h4>
+        <p>Nittaku Premium 40+ ★★★ for training and matches.</p>
+      </div>
+      <div class="gear-item">
+        <div class="gear-icon">🎒</div>
+        <h4>Case</h4>
+        <p>Hard double case to protect the rubbers.</p>
+      </div>
+      <div class="gear-item">
+        <div class="gear-icon">🧽</div>
+        <h4>Cleaner</h4>
+        <p>Rubber cleaner spray + sponge after every session.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CARE TIPS ===================== -->
+  <!-- <details> is a built-in HTML element that opens/closes on click.
+       That's how we get an accordion with zero JavaScript. -->
+  <section id="care" class="section section-light">
+    <h2 class="section-title">Care Routine</h2>
+    <p class="section-sub">How I keep the racket playing like new.</p>
+
+    <div class="faq">
+      <details>
+        <summary>Cleaning the rubbers</summary>
+        <p>Spray cleaner, wipe gently from the center outward, and let them dry before casing.</p>
+      </details>
+      <details>
+        <summary>Storing the racket</summary>
+        <p>Always in a case, away from heat and direct sunlight, which dry out the rubber.</p>
+      </details>
+      <details>
+        <summary>When to replace rubbers</summary>
+        <p>Usually every 2–4 months of regular play, or when spin noticeably drops.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <p>Made by Ali Murat · Built with HTML &amp; CSS</p>
+    <a href="#home">Back to top ↑</a>
+  </footer>
+
+</body>
+</html>
