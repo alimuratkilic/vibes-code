@@ -1,0 +1,1 @@
+This site is about my table tennis racket and its features and details. I learnt what is a carousel (as name and how to use) how to make it vertical and horizontal how to program a navbar to direct between different pages how to create a basic animations with css and most importantly the core values of html and css
